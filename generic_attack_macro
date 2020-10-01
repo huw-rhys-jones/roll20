@@ -6,7 +6,7 @@
  --rightsub|Bludgeoning
 --format|badguys
 
---Attack:|[[ [$Atk] @{selected|roll_type} + 3 ]]
+--Attack:|[[ [$Atk] @{selected|d20} + 3 ]]
 --?? $Atk.base == 20 ?? Critical Hit:| @{selected|character_name} attacks @{selected|token_name} and hits a particularly sensitive spot for [[ [$CritDmg] (2d6 + 1) * @{target|bludgeoning_multi} ]] bludgeoning damage.
 --?? $Atk < @{target|bar2} ?? Miss:| @{selected|character_name} attacks @{target|token_name} but misses.
 --?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? Hit:| @{selected|character_name} attacks @{target|token_name} and hits for [[ [$Dmg] (1d6 + 1) * @{target|bludgeoning_multi} ]] bludgeoning damage.
