@@ -1,1 +1,1 @@
-!setattr --all --slashing_multi|1 --piercing_multi|1 --bludgeoning_multi|1 --slashing_multi|1 --acid_multi|1 --cold_multi|1 --fire_multi|1 --force_multi|1 --lightning_multi|1 --necrotic_multi|1 --poison_multi|1 --psychic_multi|1 --radiant_multi|1 --thunder_multi|1 --magic_multi|1
+!setattr --all --slashing_multi|1 --piercing_multi|1 --bludgeoning_multi|1 --acid_multi|1 --cold_multi|1 --fire_multi|1 --force_multi|1 --lightning_multi|1 --necrotic_multi|1 --poison_multi|1 --psychic_multi|1 --radiant_multi|1 --thunder_multi|1 --magic_multi|1
