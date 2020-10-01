@@ -1,0 +1,3 @@
+!token-mod --ids @{target|token_id} --set bar2|[[@{target|npc_ac}]]
+!token-mod --ids @{target|token_id} --set statusmarkers|-Cover
+!token-mod --ids @{target|token_id} --set statusmarkers|-ThreeQuarterCover
