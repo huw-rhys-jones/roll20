@@ -1,0 +1,11 @@
+!group-check {{
+--?{Ability Save|Strength,Strength Save|Dexterity,Dexterity Save|Constitution,Constitution Save|Intelligence,Intelligence Save|Wisdom,Wisdom Save|Charisma,Charisma Save}
+--process
+--subheader vs DC ?{DC}
+--button ApplyDamage !apply-damage
+~dmg [[?{Damage}]]
+~type ?{Damage on Save|Half,half|None,none}
+~DC ?{DC}
+~saves RESULTS(,)
+~ids IDS(,)
+}}
