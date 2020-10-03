@@ -1,0 +1,11 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|**@{selected|token_name}** attempts to Hide
+--Stealth:| [[ [$Hide] @{selected|d20} + @{selected|stealth_bonus} ]]
+--?? $Hide >= @{selected|stealth_boundary} ?? Success:| @{selected|token_name} disappears from view.
+--?? $Hide < @{selected|stealth_boundary} ?? Failure:| @{selected|token_name} inadvertently makes a lot of noise.
+--?? $Hide >= @{selected|stealth_boundary} ?? api_token-mod|_ids @{selected|token_id} _ignore-selected _set statusmarkers|Hidden
+--?? $Hide >= @{selected|stealth_boundary} ?? api_setattr| _charid @{selected|character_id} _d20|2d20kh1 _silent
+--?? $Hide < @{selected|stealth_boundary} ?? api_setattr| _charid @{selected|character_id} _d20|1d20 _silent
+--?? $Hide < @{selected|stealth_boundary} ?? api_token-mod|_ids @{selected|token_id} _ignore-selected _set statusmarkers|-Hidden
+}}
