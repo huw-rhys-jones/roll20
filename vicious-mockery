@@ -1,0 +1,15 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|**@{selected|token_name}** spell attacks **@{target|character_name} **
+--name|Vicious Mockery
+ --leftsub|Ranged (60ft)
+ --rightsub|Psychic
+--format|badguys
+--hroll|[[ [$Save] @{target|d20} + @{target|npc_wis_save} ]]
+--?? $Save >= @{selected|spell_save_dc} ?? Failure:| @{target|token_name} laughs off the mockery.
+--?? $Save < @{selected|spell_save_dc} ?? Success:| @{target|token_name} finds @{selected|character_name}'s joke no laughing matter and takes [[ [$Dmg] ([[round((@{selected|level} + 1) / 6 + 0.5)]]d4))*@{target|psychic_multi} ]] psychic damage and has disadvantage on the next attack roll before the end of their next turn. 
+--?? $Save < @{selected|spell_save_dc} ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|-[^Dmg] _show|all
+--?? $Save < @{selected|spell_save_dc} ?? api_token-mod|_ids @{target|token_id} _ignore-selected _set statusmarkers|Disadvantage
+--?? $Save < @{selected|spell_save_dc} ?? api_setattr| _charid @{target|character_id} _d20|2d20kl1 _silent
+--vfx_opt| @{target|token_id} burst-acid
+}}
