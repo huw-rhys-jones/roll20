@@ -7,9 +7,9 @@
 --format|badguys
 
 --Attack:|[[ [$Atk] @{selected|d20} + @{selected|spell_attack_bonus} ]]
---?? $Atk.base == 20 ?? Critical Hit:| @{selected|character_name} attacks @{selected|token_name} and hits a particularly sensitive spot for [[ [$CritDmg] (2d8) * @{target|cold_multi} ]] cold damage. In addition, their speed is reduced by 10 ft.
+--?? $Atk.base == 20 ?? Critical Hit:| @{selected|character_name} attacks @{selected|token_name} and hits a particularly sensitive spot for [[ [$CritDmg] ([[round((@{selected|level} + 1) / 6 + 0.5)*2]]d8) * @{target|cold_multi} ]] cold damage. In addition, their speed is reduced by 10 ft.
 --?? $Atk < @{target|bar2} ?? Miss:| @{selected|character_name} attacks @{target|token_name} but misses.
---?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? Hit:| @{selected|character_name} attacks @{target|token_name} and hits for [[ [$Dmg] (1d8) * @{target|cold_multi} ]] cold damage.
+--?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? Hit:| @{selected|character_name} attacks @{target|token_name} and hits for [[ [$Dmg] ([[round((@{selected|level} + 1) / 6 + 0.5)]]d8) * @{target|cold_multi} ]] cold damage.
 --?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|-[^Dmg] _show|all
 --?? $Atk.base == 20 ?? alterbar2|_target|@{target|token_id} _bar|1 _amount|-[^CritDmg] _show|all
 --?? $Atk >= @{target|bar2} OR $Atk.base == 20 ?? api_token-mod|_ids @{target|token_id} _ignore-selected _set statusmarkers|snail
