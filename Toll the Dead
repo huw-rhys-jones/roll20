@@ -1,0 +1,15 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|**@{selected|token_name}** spell attacks **@{target|character_name} **
+--name| Toll the Dead
+ --leftsub|Save vs Wisdom (60ft)
+ --rightsub|necrotic
+--format|badguys
+--hroll|[[ [$Save] @{target|d20} + @{target|npc_wis_save} ]]
+--?? $Save >= @{selected|spell_save_dc} ?? Failure:| @{target|token_name} feels a shiver down the spine but shakes it off.
+--?? $Save < @{selected|spell_save_dc} AND @{target|bar1} == @{target|target|bar1|max} ?? Grave Chill:| @{target|token_name} feels the icy chill of the grave and takes [[ [$Dmg] ([[round((@{selected|level} + 1) / 6 + 0.5)]]d8))*@{target|necrotic_multi} ]] necrotic damage. 
+--?? $Save < @{selected|spell_save_dc} AND @{target|bar1} < @{target|target|bar1|max} ?? The Grave Reaches:| @{target|token_name} feels the icy chill of the grave and takes [[ [$Dmg2] ([[round((@{selected|level} + 1) / 6 + 0.5)]]d12))*@{target|necrotic_multi} ]] necrotic damage. 
+--?? $Save < @{selected|spell_save_dc} AND @{target|bar1} == @{target|target|bar1|max} ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|-[^Dmg] _show|all
+--?? $Save < @{selected|spell_save_dc} AND @{target|bar1} < @{target|target|bar1|max} ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|-[^Dmg2] _show|all
+--vfx_opt| @{target|token_id} burst-acid
+}}
