@@ -1,0 +1,5 @@
+/fx nova-blood @{target|token_id}
+!token-mod --ids @{target|token_id} --set statusmarkers|dead
+!emas @{target|token_name} Dies Horribly
+!token-mod --ids @{target|token_id} --set bar1_value|0
+!roll20AM --audio,play|Wilhelm%20Scream%20sound%20effect,nomenu
