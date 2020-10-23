@@ -1,0 +1,12 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|**@{selected|token_name}** takes a short rest
+--name|Short Rest
+ --format|badguys
+--Hit Dice:| @{selected|token_name} uses ?{Hit dice to use? (@{selected|hit_dice} remaining)|0 } hit dice.
+--Healing:| @{selected|token_name} heals [[ [$HD] ?{Hit dice to use? (@{selected|hit_dice} remaining)|0 }d@{selected|hitdietype} + ?{Hit dice to use? (@{selected|hit_dice} remaining)|0 }*@{selected|constitution_mod} ]] points.
+-- alterbar1|_target|@{selected|token_id} _bar|1 _amount|[^HD] _show|all
+
+}}
+!ammo @{selected|character_id} hit_dice -?{Hit dice to use? (@{selected|hit_dice} remaining)|0 } Hit Dice
+!short-rest
