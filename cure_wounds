@@ -1,0 +1,16 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|**@{selected|token_name}** Heals **@{target|character_name} **
+--name|Cure Wounds (1st Level)
+ --leftsub|Touch
+--format|badguys
+--?? @{selected|lvl1_slots_expended} == 0 ?? Insufficient Spell Slots:| You're out of level 1 spell slots!
+--?? @{selected|lvl1_slots_expended} >= 1 ??
+HP:| @{target|token_name} gains [[ [$HP] 1d8  + @{selected|wisdom_mod}[WIS] ]] HP.
+--?? @{selected|lvl1_slots_expended} >= 1  ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|[^HP] _show|all
+--soundfx|_audio,play,nomenu|heal
+}}
+
+/fx burst-holy @{target|token_id}
+
+#expend-level-one
