@@ -1,0 +1,18 @@
+!power {{
+--tokenid|@{selected|token_id}
+--emote|*@{selected|token_name}* attacks *@{target|character_name} *
+--name|Tentacle
+ --leftsub|Melee
+ --rightsub|Bludgeoning, piercing
+--format|badguys
+
+--Attack:|[[ [$Atk] @{selected|d20} + 6 ]]
+--?? $Atk.base == 20 ?? Critical Hit:| @{selected|character_name} attacks @{target|token_name} and hits a particularly sensitive spot for [[ [$CritDmg] (2d6 + 4) * @{target|bludgeoning_multi} ]] bludgeoning damage as well as [[ [$CritDmgP] (2d6) * @{target|piercing_multi} ]] piercing damage.
+--?? $Atk < @{target|bar2} AND $Atk.base <> 20 ?? Miss:| @{selected|character_name} attacks @{target|token_name} but misses.
+--?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? Hit:| @{selected|character_name} attacks @{target|token_name} and hits for [[ [$Dmg] (1d6 + 4) * @{target|bludgeoning_multi} ]] bludgeoning damage and [[ [$DmgP] (1d6) * @{target|piercing_multi} ]] piercing damage.
+--?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? alterbar1|_target|@{target|token_id} _bar|1 _amount|-[^Dmg] _show|all
+--?? $Atk.base == 20 ?? alterbar2|_target|@{target|token_id} _bar|1 _amount|-[^CritDmg] _show|all
+--?? $Atk >= @{target|bar2} AND $Atk.base <> 20 ?? alterbar3|_target|@{target|token_id} _bar|1 _amount|-[^DmgP] _show|all
+--?? $Atk.base == 20 ?? alterbar4|_target|@{target|token_id} _bar|1 _amount|-[^CritDmgP] _show|all
+--soundfx|_audio,play,nomenu|Schwak
+}}
